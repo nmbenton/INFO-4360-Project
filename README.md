@@ -5,7 +5,9 @@ Team: Julia Rasul and Nicole Benton
 
 ## The problem
 
-Almost everyone has gotten a scam text by now: a package that "couldn't be delivered," or a bank account that's suddenly "locked." Americans reported losing **$470 million** to text scams in 2024 (FTC, 2025).
+Almost everyone has gotten a scam text by now: a package that "couldn't be delivered," or a bank account that's suddenly "locked." 
+
+**Why it Matters:** Americans reported losing **$470 million** to text scams in 2024 (FTC, 2025).
 
 **Stakeholder:** the fraud team at a mobile carrier. Their job is to stop these messages before they reach customers.
 
