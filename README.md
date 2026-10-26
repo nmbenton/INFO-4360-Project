@@ -30,7 +30,7 @@ Almost everyone has gotten a scam text by now: a package that "couldn't be deliv
 | smishing | 638 | 10.7% |
 | spam | 489 | 8.2% |
 
-`data/sample_messages.csv` holds a 300-row sample stratified by label. To run the full analysis, download the dataset from the Mendeley link above and save it as `data/Dataset_5971.csv`.
+The full dataset is included in the repo as `Dataset_5971.csv` in the main folder. It can also be downloaded from the Mendeley link above.
 
 ### Known data issues (from a first look)
 
@@ -63,27 +63,39 @@ These features are mostly **diagnostic**, because the carrier can't change what 
 
 ```
 ├── README.md
-├── requirements.txt          # Python packages
-├── data/
-│   └── sample_messages.csv   # 300-row stratified sample
-└── notebooks/                # analysis notebooks (Phase 2)
+├── requirements.txt               # Python packages
+├── Dataset_5971.csv               # full dataset
+├── LICENSE
+├── .gitignore
+└── notebooks/
+    ├── Complex Project V2.ipynb   # Phase 2 analysis (current)
+    └── Complex Project.ipynb      # earlier version
 ```
 
 ## How to run
 
-*Coming in Phase 2.* The plan:
+1. Clone the repo:
+   ```
+   git clone https://github.com/nmbenton/INFO-4360-Project.git
+   cd INFO-4360-Project
+   ```
+2. Install the requirements:
+   ```
+   pip install -r requirements.txt
+   ```
+3. Open `notebooks/Complex Project V2.ipynb` and run all cells.
 
-```
-git clone <this repo>
-pip install -r requirements.txt
-```
+Keep `Dataset_5971.csv` in the main repo folder, since the notebook loads it with `../Dataset_5971.csv`.
 
-Then download the full dataset into `data/` (see above) and run the notebooks in order.
+## Progress (Phase 2)
+
+We completed data exploration and text mining: basic stats, duplicate removal (95 exact duplicate rows), message length, distinctive words, word clouds, text signals (digits, links, calls to action) and VADER sentiment. Scam messages are longer, contain more digits and phone numbers, usually include a call to action, and sound more positive than ham. Spam and smishing look very similar on these signals, so for Phase 3 we plan to combine them into one "scam" class and build a classifier that labels each message as safe or scam.
 
 ## Status
 
 - [x] Phase 1: problem, data and proposal
-- [ ] Phase 2: modeling and analysis
+- [x] Phase 2: data exploration and text mining
+- [ ] Phase 3: modeling and interpretation
 - [ ] Final presentation and report
 
 ## References
