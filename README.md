@@ -30,7 +30,7 @@ Almost everyone has gotten a scam text by now: a package that "couldn't be deliv
 | smishing | 638 | 10.7% |
 | spam | 489 | 8.2% |
 
-The full dataset is included in the repo as `Dataset_5971.csv` in the main folder. It can also be downloaded from the Mendeley link above.
+The full dataset is included in the repo at data/Dataset_5971.csv, so no download is needed. It can also be downloaded from the Mendeley link above.
 
 ### Known data issues (from a first look)
 
@@ -64,9 +64,10 @@ These features are mostly **diagnostic**, because the carrier can't change what 
 ```
 ├── README.md
 ├── requirements.txt               # Python packages
-├── Dataset_5971.csv               # full dataset
 ├── LICENSE
 ├── .gitignore
+├── data/                          ← added
+│   └── Dataset_5971.csv           # full dataset      ← added
 └── notebooks/
     ├── Complex Project V2.ipynb   # Phase 2 analysis (current)
     └── Complex Project.ipynb      # earlier version
@@ -85,7 +86,7 @@ These features are mostly **diagnostic**, because the carrier can't change what 
    ```
 3. Open `notebooks/Complex Project V2.ipynb` and run all cells.
 
-Keep `Dataset_5971.csv` in the main repo folder, since the notebook loads it with `../Dataset_5971.csv`.
+Keep Dataset_5971.csv in the data/ folder, since the notebook loads it with ../data/Dataset_5971.csv.
 
 ## Progress (Phase 2)
 
