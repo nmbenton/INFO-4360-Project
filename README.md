@@ -11,7 +11,7 @@ Almost everyone has gotten a scam text by now: a package that "couldn't be deliv
 
 **Stakeholder:** the fraud team at a mobile carrier. Their job is to stop these messages before they reach customers.
 
-**Goal:** build a fast, cheap classifier that labels each incoming text as **ham** (legitimate), **smishing** (a scam after money or personal details) or **spam** (unwanted marketing). The carrier can then block or warn on flagged texts before the customer opens them.
+**Goal:** build a fast, cheap classifier that estimates the **chance each incoming text is a scam** (spam or smishing) versus **ham** (legitimate). The carrier can then block or warn on flagged texts before the customer opens them.
 
 ## Main results
 
@@ -34,9 +34,9 @@ Almost everyone has gotten a scam text by now: a package that "couldn't be deliv
 | | |
 |---|---|
 | Source | [SMS Phishing Dataset for Machine Learning and Pattern Recognition](https://data.mendeley.com/datasets/f45bkkt8pr/1) (Mishra & Soni, 2022), Mendeley Data |
-| Size | 5,971 messages |
+| Size | 5,971 messages (5,831 after removing duplicate texts) |
 | Columns | `LABEL`, `TEXT`, plus yes/no flags `URL`, `EMAIL`, `PHONE` |
-| Target | `LABEL`: ham, smishing, spam |
+| Target | `scam`: ham = 0, spam or smishing = 1 |
 
 **Class balance (after fixing label capitalization):**
 
@@ -95,13 +95,13 @@ The features are mostly **diagnostic**, because the carrier can't change what sc
 ├── data/
 │   └── Dataset_5971.csv                  # full dataset
 ├── src/
-│   └── scamfeatures.py                   # text signal features shared by the model and Scam Checker
+│   └── scamfeatures.py                   # shared text signal features
 ├── models/
-│   └── scam_model.joblib                 # trained final model (created by the final report notebook)
+│   └── scam_model.joblib                 # saved final model
 └── notebooks/
-    ├── Final_Report.ipynb                # Phase 3 final report (start here)
-    ├── Final_Report.html                 # HTML export of the final report
-    ├── Scam_Checker.ipynb                # type a message, get the chance it's a scam
+    ├── Final_Report.ipynb                # final report (start here)
+    ├── Final_Report.html                 # HTML export of the report
+    ├── Classifier.ipynb                  # Scam Checker: test any message
     ├── Complex_Project_Phase_3_V1.ipynb  # Phase 3 modeling draft
     ├── Complex Project V2.ipynb          # Phase 2 analysis
     └── Complex Project.ipynb             # earlier version
@@ -119,7 +119,7 @@ The features are mostly **diagnostic**, because the carrier can't change what sc
    pip install -r requirements.txt
    ```
 3. Open `notebooks/Final_Report.ipynb` and run all cells. This trains the models, prints all results and saves the final model to `models/scam_model.joblib`.
-4. Optional: open `notebooks/Scam_Checker.ipynb`, run the cells and type any message to see its chance of being a scam. This notebook needs the saved model from step 3.
+4. Optional: open `notebooks/Classifier.ipynb`, run the cells and type any message to see its chance of being a scam. This notebook needs the saved model from step 3.
 
 Run the notebooks from inside the `notebooks/` folder, since they load `../data/Dataset_5971.csv` and `../src/scamfeatures.py`. No API key is needed.
 
@@ -137,7 +137,5 @@ To view the results without running anything, open `notebooks/Final_Report.html`
 Federal Trade Commission. (2025, April 16). *New FTC data show top text message scams of 2024; overall losses to text scams hit $470 million* [Press release]. https://www.ftc.gov/news-events/news/press-releases/2025/04/new-ftc-data-show-top-text-message-scams-2024-overall-losses-text-scams-hit-470-million
 
 Hutto, C. J., & Gilbert, E. (2014). VADER: A parsimonious rule-based model for sentiment analysis of social media text. *Proceedings of the International AAAI Conference on Web and Social Media, 8*(1).
-
-Mishra, S., & Soni, D. (2022). *SMS Phishing Dataset for Machine Learning and Pattern Recognition* (Version 1) [Data set]. Mendeley Data. https://data.mendeley.com/datasets/f45bkkt8pr/1
 
 Mishra, S., & Soni, D. (2022). *SMS Phishing Dataset for Machine Learning and Pattern Recognition* (Version 1) [Data set]. Mendeley Data. https://data.mendeley.com/datasets/f45bkkt8pr/1
