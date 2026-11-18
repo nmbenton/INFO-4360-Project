@@ -38,13 +38,13 @@ Almost everyone has gotten a scam text by now: a package that "couldn't be deliv
 | Columns | `LABEL`, `TEXT`, plus yes/no flags `URL`, `EMAIL`, `PHONE` |
 | Target | `scam`: ham = 0, spam or smishing = 1 |
 
-**Class balance (after fixing label capitalization):**
+**Class balance (after cleaning and removing 140 duplicate texts, 5,831 messages):**
 
 | Label | Count | Share |
 |---|---:|---:|
-| ham | 4,844 | 81.1% |
-| smishing | 638 | 10.7% |
-| spam | 489 | 8.2% |
+| ham | 4,834 | 82.9% |
+| smishing | 543 | 9.3% |
+| spam | 454 | 7.8% |
 
 After removing duplicates and combining spam and smishing, 17.1% of messages are scams.
 
@@ -102,10 +102,8 @@ The features are mostly **diagnostic**, because the carrier can't change what sc
     ├── Final_Report.ipynb                # final report (start here)
     ├── Final_Report.html                 # HTML export of the report
     ├── Classifier.ipynb                  # Scam Checker: test any message
-    ├── Complex_Project_Phase_3_V1.ipynb  # Phase 3 modeling draft
-    ├── Complex Project V2.ipynb          # Phase 2 analysis
-    └── Complex Project.ipynb             # earlier version
-```
+    ├── Complex Project Phase 3 V1.ipynb  # Phase 3 modeling draft
+    └── Complex Project V2.ipynb          # Phase 2 analysis
 
 ## How to run
 
